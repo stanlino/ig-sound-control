@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Adiciona um controle de volume nos vídeos do Instagram",
   "icons": {
-    "48": "icon.png"
+    "48": "assets/icon.png"
   },
   "permissions": [
     "activeTab",
@@ -12,7 +12,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "default_icon": "assets/icon.png"
   },
   "host_permissions": [
     "https://www.instagram.com/*"
@@ -20,7 +20,7 @@
   "content_scripts": [
     {
       "matches": ["https://www.instagram.com/*"],
-      "js": ["content.js"]
+      "js": ["dist/content.js"]
     }
   ]
 }

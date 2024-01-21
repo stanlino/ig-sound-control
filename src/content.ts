@@ -3,7 +3,7 @@ chrome.storage.sync.get('volume', function(data) {
   volume = data.volume || 0.2;
 });
 
-function updateVolume(videoElement) {
+function updateVolume(videoElement: HTMLVideoElement) {
   videoElement.volume = volume;
 }
 

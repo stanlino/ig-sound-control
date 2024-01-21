@@ -1,0 +1,17 @@
+{
+  "name": "igsoundcontrol",
+  "version": "1.0.0",
+  "description": "Adiciona um controle de volume nos vídeos do Instagram",
+  "main": "content.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chrome": "^0.0.258",
+    "typescript": "^5.3.3"
+  }
+}
