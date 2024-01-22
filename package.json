@@ -1,7 +1,7 @@
 {
-  "name": "igsoundcontrol",
+  "name": "mixer-extension",
   "version": "1.0.0",
-  "description": "Adiciona um controle de volume nos vídeos do Instagram",
+  "description": "Adiciona um controle de volume para cada aba do navegador.",
   "main": "content.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

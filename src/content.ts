@@ -1,14 +1,18 @@
 let volume = 0.2;
-chrome.storage.sync.get('volume', function(data) {
-  volume = data.volume || 0.2;
+chrome.runtime.sendMessage({ type: "getTabVolume" }, function(response) {
+  console.log('retornou', response)
+  if (response && response.volume) {
+    volume = response.volume;
+    callback();
+  }
 });
 
-function updateVolume(videoElement: HTMLVideoElement) {
+function updateVolume(videoElement: HTMLVideoElement | HTMLAudioElement) {
   videoElement.volume = volume;
 }
 
 function callback() {
-  const videos = document.querySelectorAll("video");
+  const videos = document.querySelectorAll("video, audio") as NodeListOf<HTMLVideoElement | HTMLAudioElement>;
   videos.forEach(video => updateVolume(video));
 }
 
@@ -17,16 +21,13 @@ function observeMutations() {
   observer.observe(document.body, { childList: true, subtree: true, attributes: true });
 }
 
-if (window.location.hostname === "www.instagram.com") {
+if (window.location.hostname) {
   observeMutations();
 
   window.addEventListener("play", callback, true);
 
   chrome.runtime.onMessage.addListener(function(request) {
     volume = request.volume;
-    const videos = document.querySelectorAll("video");
-    videos.forEach(video => {
-      updateVolume(video);
-    });
+    callback();
   });
 }
